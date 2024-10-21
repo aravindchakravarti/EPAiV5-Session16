@@ -5,13 +5,20 @@ def create_inventory():
     Create and return an inventory using different dictionary creation methods,
     including dictionary comprehensions and dict() constructor.
     """
-    pass
+    invntry_dict = dict(Electronics={}, Groceries={})
+    return invntry_dict
 
 def update_inventory(inventory, category, item_name, update_info):
     """
     Update item information (e.g., increasing stock, updating price) in the inventory.
     """
-    pass
+    if category in inventory:
+        if item_name not in inventory[category]:
+            inventory[category][item_name] = {}
+            inventory[category][item_name].update(update_info)
+        else:
+            inventory[category][item_name].update(update_info)
+    return inventory
 
 def merge_inventories(inv1, inv2):
     """
